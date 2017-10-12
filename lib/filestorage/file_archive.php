@@ -152,8 +152,8 @@ abstract class file_archive implements Iterator {
             }
         }
 
-        $result = preg_replace('/\.\.+/', '', $result);
-        $result = ltrim($result); // no leading /
+        $result = preg_replace('|/\.\.+/|', '/', $result);
+        $result = ltrim($result, '/'); // no leading /
 
         if ($result === '.') {
             $result = '';
